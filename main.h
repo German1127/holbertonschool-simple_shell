@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 
 char *path(char *filename);
-char *_getenv(const char *name);
+char *get_env(const char *name);
 char *findexpath(const char *command, const char *path);
 int main();
 
