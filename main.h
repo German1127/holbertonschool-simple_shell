@@ -10,6 +10,11 @@
 #include <sys/stat.h>
 #include <stddef.h>
 
+<<<<<<< HEAD
+=======
+char *path(char *filename);
+char *get_env(const char *name);
+>>>>>>> 4448b1fa7cd71dc6011d893da24a5d1e7fe0036a
 char *findexpath(const char *command, const char *path);
 char *_getenv(const char *name);
 void executeCommand(char *command, char **arraytok);
