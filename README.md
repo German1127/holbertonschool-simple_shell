@@ -1,4 +1,4 @@
-# Holbertonschool-simple_shell
+# Simple Shell
 In this proyect we should create a Simple Shell imitating the basic functions ot the standar librery.
 ## Shell
 ### What does a Shell do:
@@ -20,18 +20,45 @@ When you log in to the system, the system locates the name of a shell program to
   - Handles the command path as well, like `/bin/ls`, and all options and paths, like `/bin/ls -l /var`.
 ## Library
 For this project we used:
-- <stdio.h>
-- <stdarg.h>
-- <stdlib.h>
-- <unistd.h>
-- <sys/stat.h>
-- <sys/wait.h>
-  
+- #include <stddef.h>
+- #include <stdio.h>
+- #include <unistd.h>
+- #include <string.h>
+- #include <stdlib.h>
+- #include <sys/wait.h>
+- #include <sys/stat.h>
+- #include <stddef.h>
 ## File Descriptions
 -
 - aca van las descripciones
+
+## Installation
+```bash
+https://github.com/German1127/holbertonschool-simple_shell.git
+```
+## Compilation
+The shell will be compiled as follows:
+```
+gcc -Wall -Werror -Wextra -pedantic - shell.c -o shell
+```
+## Interactive
+An interactive command in the programming context generally refers to an instruction that requests input from the user while the program is running.
+```bash
+ $ ls
+main.h shell.c strtok.c _getenv.g _aux_func.c
+```
+## Non-Interactive
+A non-interactive shell operates without user interaction and is commonly used for automated tasks, scripting, and background processes.
+```bash
+ $ echo "ls" | ./shell.c
+main.h shell.c strtok.c _getenv.g _aux_func.c
+```
 ## Flowchart
--
+ <img src="https://i.ibb.co/cvDJQ3m/IMG-20230815-WA0002.jpg" alt="Flowchart" border="0">
+ 
 ## Authors
 * **Lucia Puppo** - [Github](https://github.com/LuciaPuppo897)
 * **German Aquino** - [Github](https://github.com/German1127)
+
+## License
+Holberton School
