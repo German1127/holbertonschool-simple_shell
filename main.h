@@ -1,16 +1,18 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
-
+#ifndef MAIN_H
+#define MAIN_H
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-
+#include <stddef.h>
 char *path(char *filename);
 char *get_env(const char *name);
 char *findexpath(const char *command, const char *path);
-int main();
-
+char *_getenv(const char *name);
+void executeCommand(char *command, char **arraytok);
+char **strtok_str(char *copy_line);
+char *readinput();
+void free_memory(char **args);
 #endif
