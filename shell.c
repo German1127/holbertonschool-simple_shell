@@ -5,7 +5,8 @@
 */
 int main(void)
 {
-	char *lineptr = NULL, *copy_line = NULL, char *command = NULL;
+	char *lineptr = NULL, *copy_line = NULL;
+	char *command = NULL;
 	char **args = NULL;
 	char *prompt = "$ ";
 	const char *limit = " \n\t\"";
