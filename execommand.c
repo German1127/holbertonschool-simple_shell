@@ -11,6 +11,12 @@ void executeCommand(char *command, char **arraytok)
 	char *commandpath = findexpath(arraytok[0], path);
 	pid_t pid = fork();
 
+if (pid == 0 &&commandpath == NULL)
+    {
+        printf("$ command not found\n");
+        return;
+    }
+
 	if (pid < 0)
 	{
 		perror("Fork failed");
@@ -35,10 +41,14 @@ void executeCommand(char *command, char **arraytok)
 			else
 			{
 			perror("Command not found");
+			free(command);
+			free(commandpath);
 			exit(EXIT_FAILURE);
 			}
 		}
+		free(path);
 	}
+
 	else
 	{
 		wait(NULL);
