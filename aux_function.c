@@ -22,6 +22,7 @@ char *readinput()
 
 /**
  * free_memory - frees alloced memory
+ * @args: the array to be free
  * Return: nothing
 */
 void free_memory(char **args)
@@ -29,9 +30,9 @@ void free_memory(char **args)
 	int i = 0;
 
 while (args[i])
-	{
-		free(args[i]);
-		i++;
-	}
+{
+	free(args[i]);
+	i++;
+}
 	free(args);
 }

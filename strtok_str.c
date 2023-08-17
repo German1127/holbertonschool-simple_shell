@@ -1,6 +1,7 @@
 #include "main.h"
 /**
  * strtok_str - tokenize the command given by the user
+ * @copy_line: the line to get token
  * Return: a array of pointers with the tokens
  */
 char **strtok_str(char *copy_line)

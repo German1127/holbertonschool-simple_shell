@@ -1,6 +1,8 @@
 #include "main.h"
 /**
  * executeCommand - excecutes the commandpath
+ * @command: the given command by the user
+ * @arraytok: command path tokenized
  * Return: 0 if success
  */
 void executeCommand(char *command, char **arraytok)
@@ -8,6 +10,7 @@ void executeCommand(char *command, char **arraytok)
 	char *path = _getenv("PATH");
 	char *commandpath = findexpath(arraytok[0], path);
 	pid_t pid = fork();
+
 	if (pid < 0)
 	{
 		perror("Fork failed");

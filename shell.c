@@ -19,24 +19,20 @@ int main(void)
 		printf("%s", prompt);
 		}
 	lineptr = readinput();
-
 	if (lineptr == NULL)
-	{
-		break;
-	}
+	break;
 	copy_line = strdup(lineptr);
 	command = strtok(copy_line, limit);
 	if (command != NULL)
 		{
 		args = strtok_str(lineptr);
-
-		if (strcmp(command, "exit") == 0)
-		{
-			free_memory(args);
-			free(lineptr);
-			free(copy_line);
-			break;
-		}
+	if (strcmp(command, "exit") == 0)
+	{
+		free_memory(args);
+		free(lineptr);
+		free(copy_line);
+		break;
+	}
 		{
 			executeCommand(command, args);
 		}
