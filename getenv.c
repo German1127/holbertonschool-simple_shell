@@ -9,8 +9,9 @@
 {
 	extern char **environ;
 	size_t length = strlen(name);
+	int i = 0;
 
-	for (int i = 0; environ[i] != NULL; i++)
+	for (; environ[i] != NULL; i++)
 
 	{
 	char *current_env = environ[i];

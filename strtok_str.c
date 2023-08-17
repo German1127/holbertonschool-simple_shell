@@ -10,7 +10,7 @@ char **strtok_str(char *copy_line)
 	char **arraytok = NULL;
 	char *token;
 	char *copy2 = strdup(copy_line);
-	int i;
+	size_t i = 0;
 
 	if (!copy_line)
 	{
@@ -34,7 +34,7 @@ char **strtok_str(char *copy_line)
 	exit(EXIT_FAILURE);
 	}
 	token = strtok(copy2, limit);
-	for (size_t i = 0; i < num_tokens; i++)
+	for (; i < num_tokens; i++)
 	{
 	arraytok[i] = strdup(token);
 	token = strtok(NULL, limit);
