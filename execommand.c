@@ -9,13 +9,14 @@ void executeCommand(char *command, char **arraytok)
 {
 	char *path = _getenv("PATH");
 	char *commandpath = findexpath(arraytok[0], path);
-	pid_t pid = fork();
+	pid_t pid;
 
-if (pid == 0 &&commandpath == NULL)
-    {
-        printf("$ command not found\n");
-        return;
-    }
+	if (commandpath == NULL)
+	{
+	printf("command not found\n");
+	return;
+	}
+	pid = fork();
 
 	if (pid < 0)
 	{
