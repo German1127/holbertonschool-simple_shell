@@ -49,6 +49,8 @@ main.h shell.c strtok_str.c _getenv.g aux_functions.c execommand.c
 ```
 ## Flowchart
  <img src="https://i.ibb.co/cvDJQ3m/IMG-20230815-WA0002.jpg" alt="Flowchart" border="0">
-## Authors
-* **Lucia Puppo** - [Github](https://github.com/LuciaPuppo897)
-* **German Aquino** - [Github](https://github.com/German1127)
+## Authors:
+
+**Lucia Puppo**  [Github](https://github.com/LuciaPuppo897)
+
+**German Aquino**  [Github](https://github.com/German1127)
