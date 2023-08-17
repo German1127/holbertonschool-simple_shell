@@ -9,27 +9,27 @@ void executeCommand(char *command, char **arraytok)
 {
 	char *path = _getenv("PATH");
 	char *commandpath = findexpath(arraytok[0], path);
-	pid_t pid = fork();
+	pid_t pid;
+	struct stat exist;
+	ssize_t checks = 0;
 
-if (pid == 0 &&commandpath == NULL)
-    {
-        printf("$ command not found\n");
-        return;
-    }
-
+	if (commandpath == NULL)
+	{
+		printf("command not found\n");
+		return;
+	}
+	pid = fork();
 	if (pid < 0)
 	{
 		perror("Fork failed");
 	}
 	else if (pid == 0)
 	{
-		if (strchr(command, '/') != NULL)
+		checks = stat(command, &exist);
+
+		if (checks == 0)
 		{
-			if (execve(command, arraytok, NULL) == -1)
-			{
-				perror("Error");
-				exit(EXIT_FAILURE);
-			}
+			(execve(command, arraytok, NULL));
 		}
 		else
 		{
@@ -48,7 +48,6 @@ if (pid == 0 &&commandpath == NULL)
 		}
 		free(path);
 	}
-
 	else
 	{
 		wait(NULL);

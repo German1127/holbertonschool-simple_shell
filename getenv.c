@@ -36,9 +36,16 @@
 */
 char *findexpath(const char *command, const char *path)
 {
-	char *pathcpy = strdup(path);
-	char *token = strtok(pathcpy, ":");
+	char *pathcpy;
+	char *token;
 	char commandpath[1024];
+	struct stat exist;
+
+	if (stat(command, &exist) == 0)
+		return ((char *)strdup(command));
+
+	pathcpy = strdup(path);
+	token = strtok(pathcpy, ":");
 
 	while (token != NULL)
 	{

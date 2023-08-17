@@ -31,6 +31,7 @@ int main(void)
 		free_memory(args);
 		free(lineptr);
 		free(copy_line);
+		exit(EXIT_SUCCESS);
 		break;
 	}
 		{
