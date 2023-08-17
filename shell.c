@@ -14,7 +14,7 @@ int main(void)
 
 	while (1)
 	{
-	if (interactive)
+	if (interactive == 1)
 		{
 		printf("%s", prompt);
 		}
