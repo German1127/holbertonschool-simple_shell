@@ -4,7 +4,6 @@
  * @name : the name of the enviroment variable to find
  * Return: the PATH
  */
-
 	char *_getenv(const char *name)
 {
 	extern char **environ;
@@ -12,22 +11,16 @@
 	int i = 0;
 
 	for (; environ[i] != NULL; i++)
-
 	{
 	char *current_env = environ[i];
 
 	if (strncmp(current_env, name, length) == 0 && current_env[length] == '=')
-
 	{
 	return (&current_env[length + 1]);
-
 	}
-
 	}
 	return (NULL);
-
 }
-
 /**
 * findexpath - find the excecutable path of the given command
 *@command: the given command
@@ -54,12 +47,9 @@ char *findexpath(const char *command, const char *path)
 	{
 	free(pathcpy);
 	return (strdup(commandpath));
-
 	}
 	token = strtok(NULL, ":");
-
 	}
 	free(pathcpy);
 	return (0);
-
 }
