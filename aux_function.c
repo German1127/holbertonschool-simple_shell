@@ -19,6 +19,18 @@ char *readinput()
 
 	return (lineptr);
 }
+/**
+* print_environment - function that prints the environmet.
+*/
+void print_environment(void)
+{
+	char **env_ptr;
+
+	for (env_ptr = __environ; *env_ptr != NULL; env_ptr++)
+	{
+		printf("%s\n", *env_ptr);
+	}
+}
 
 /**
  * free_memory - frees alloced memory
