@@ -16,7 +16,7 @@ int executeCommand(char *command, char **arraytok)
 
 	if (commandpath == NULL)
 	{
-		printf("command not found\n");
+		printf("%s%s", command, ": command not found\n");
 		return (-1);
 	}
 	pid = fork();
@@ -38,19 +38,13 @@ int executeCommand(char *command, char **arraytok)
 				execve(commandpath, arraytok, __environ);
 				free(commandpath);
 			}
-			else
-			{
-			free(command);
-			free(commandpath);
-			exit(EXIT_FAILURE);
-			}
-		}
-		free(path);
+			freememory2(command, commandpath);
+
+		free(path);	}
 	}
 	else
 	{
-		wait(&status);
-	}
+		wait(&status);	}
 	free(commandpath);
-	return(WEXITSTATUS(status));
+	return (WEXITSTATUS(status));
 }

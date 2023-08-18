@@ -15,4 +15,5 @@ int executeCommand(char *command, char **arraytok);
 char **strtok_str(char *copy_line);
 char *readinput();
 void free_memory(char **args);
+int freememory2 (char *command, char * commandpath);
 #endif

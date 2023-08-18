@@ -36,3 +36,17 @@ while (args[i])
 }
 	free(args);
 }
+
+/**
+ * freememory2- free memory
+ * @command: the command given by the user
+ * @commandpath: the full toknized path of the function
+ * Return: int
+*/
+
+int freememory2(char *command, char *commandpath)
+{ /*to avoid more than 40 lines*/
+	free(command);
+	free(commandpath);
+	exit(EXIT_FAILURE);
+}

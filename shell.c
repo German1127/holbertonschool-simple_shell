@@ -34,9 +34,10 @@ int main(void)
 		exit(EXIT_SUCCESS);
 		break;
 	}
-		{
-			executeCommand(command, args); /*excecutes imput*/
-		}
+	else
+	{
+		executeCommand(command, args); /*excecutes imput*/
+	}
 			free_memory(args);
 		}
 		free(lineptr);

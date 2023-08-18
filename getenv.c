@@ -6,11 +6,11 @@
  */
 	char *_getenv(const char *name)
 {
-	extern char **environ;
 	size_t length = strlen(name);
 	int i = 0;
+	extern char **environ;
 
-	for (; environ[i] != NULL; i++) /*search in the environ the variable name*/
+	for (; environ[i] != NULL; i++)/*search in the environ the variable name*/
 	{
 	char *current_env = environ[i];
 
