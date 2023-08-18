@@ -52,5 +52,4 @@ int executeCommand(char *command, char **arraytok)
 		wait(&status);
 	}
 	return (WEXITSTATUS(status));
-	free(commandpath);
 }
