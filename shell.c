@@ -22,11 +22,11 @@ int main(void)
 	if (lineptr == NULL)
 	break;
 	copy_line = strdup(lineptr);
-	command = strtok(copy_line, limit);
+	command = strtok(copy_line, limit); /*tokenized the command*/
 	if (command != NULL)
 		{
 		args = strtok_str(lineptr);
-	if (strcmp(command, "exit") == 0)
+	if (strcmp(command, "exit") == 0) /*handles exit*/
 	{
 		free_memory(args);
 		free(lineptr);
@@ -35,12 +35,12 @@ int main(void)
 		break;
 	}
 		{
-			executeCommand(command, args);
+			executeCommand(command, args); /*excecutes imput*/
 		}
 			free_memory(args);
 		}
 		free(lineptr);
-		free(copy_line); /* no liberar command*/
+		free(copy_line);
 	}
 	return (0);
 }

@@ -13,7 +13,7 @@ char *readinput()
 
 	if (char_read == -1)
 	{
-		free(lineptr); /*se libera*/
+		free(lineptr);
 		return (NULL);
 	}
 
@@ -25,7 +25,7 @@ char *readinput()
  * @args: the array to be free
  * Return: nothing
 */
-void free_memory(char **args)
+void free_memory(char **args) /*free memory in strdup*/
 {
 	int i = 0;
 

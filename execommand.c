@@ -5,18 +5,19 @@
  * @arraytok: command path tokenized
  * Return: 0 if success
  */
-void executeCommand(char *command, char **arraytok)
+int executeCommand(char *command, char **arraytok)
 {
 	char *path = _getenv("PATH");
 	char *commandpath = findexpath(arraytok[0], path);
 	pid_t pid;
 	struct stat exist;
 	ssize_t checks = 0;
+	int status = 0;
 
 	if (commandpath == NULL)
 	{
 		printf("command not found\n");
-		return;
+		return (-1);
 	}
 	pid = fork();
 	if (pid < 0)
@@ -25,21 +26,20 @@ void executeCommand(char *command, char **arraytok)
 	}
 	else if (pid == 0)
 	{
-		checks = stat(command, &exist);
+		checks = stat(command, &exist);  /* check if command is alrady a path*/
 		if (checks == 0)
 		{
-			(execve(command, arraytok, NULL));
+			(execve(command, arraytok, NULL)); /* if true excecute it directly*/
 		}
-		else
+		else /*if false check for the complete path for the command*/
 		{
 			if (commandpath != NULL)
 			{
-				execve(commandpath, arraytok, __environ);
+				execve(commandpath, arraytok, __environ); /*excetue full path fuction*/
 				free(commandpath);
 			}
 			else
 			{
-			perror("Command not found");
 			free(command);
 			free(commandpath);
 			exit(EXIT_FAILURE);
@@ -49,7 +49,8 @@ void executeCommand(char *command, char **arraytok)
 	}
 	else
 	{
-		wait(NULL);
+		wait(&status);
 	}
+	return (WEXITSTATUS(status));
 	free(commandpath);
 }

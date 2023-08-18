@@ -11,7 +11,7 @@ char *path(char *filename);
 char *get_env(const char *name);
 char *findexpath(const char *command, const char *path);
 char *_getenv(const char *name);
-void executeCommand(char *command, char **arraytok);
+int executeCommand(char *command, char **arraytok);
 char **strtok_str(char *copy_line);
 char *readinput();
 void free_memory(char **args);

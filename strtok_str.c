@@ -13,7 +13,7 @@ char **strtok_str(char *copy_line)
 	char *copy2 = strdup(copy_line);
 	size_t i = 0;
 
-	if (!copy_line)
+	if (!copy_line) /*if no input*/
 	{
 	return (NULL);
 	}
@@ -23,7 +23,7 @@ char **strtok_str(char *copy_line)
 	num_tokens++;
 	token = strtok(NULL, limit);
 	}
-	arraytok = malloc(sizeof(char *) * (num_tokens + 1)); /*liberar luego*/
+	arraytok = malloc(sizeof(char *) * (num_tokens + 1)); /*free later*/
 	if (!arraytok)
 	{
 	return (NULL);
@@ -34,10 +34,10 @@ char **strtok_str(char *copy_line)
 	free(arraytok);
 	exit(EXIT_FAILURE);
 	}
-	token = strtok(copy2, limit);
+	token = strtok(copy2, limit); /* tokenize the copy of command */
 	for (; i < num_tokens; i++)
 	{
-	arraytok[i] = strdup(token);
+	arraytok[i] = strdup(token); /*save each token in a array of pointer*/
 	token = strtok(NULL, limit);
 	}
 	free(copy2);

@@ -10,13 +10,13 @@
 	size_t length = strlen(name);
 	int i = 0;
 
-	for (; environ[i] != NULL; i++)
+	for (; environ[i] != NULL; i++) /*search in the environ the variable name*/
 	{
 	char *current_env = environ[i];
 
 	if (strncmp(current_env, name, length) == 0 && current_env[length] == '=')
 	{
-	return (&current_env[length + 1]);
+	return (&current_env[length + 1]); /*return full env after the = */
 	}
 	}
 	return (NULL);
@@ -34,19 +34,19 @@ char *findexpath(const char *command, const char *path)
 	char commandpath[1024];
 	struct stat exist;
 
-	if (stat(command, &exist) == 0)
-		return ((char *)strdup(command));
+	if (stat(command, &exist) == 0) /*check if is alreadya  full path*/
+		return ((char *)strdup(command)); /* if true return it */
 
 	pathcpy = strdup(path);
-	token = strtok(pathcpy, ":");
+	token = strtok(pathcpy, ":"); /* if not tokenize the PATH*/
 
 	while (token != NULL)
 	{
-	sprintf(commandpath, "%s/%s", token, command);
+	sprintf(commandpath, "%s/%s", token, command); /*concatenate the PATH*/
 	if (access(commandpath, X_OK) == 0)
 	{
 	free(pathcpy);
-	return (strdup(commandpath));
+	return (strdup(commandpath)); /*return the full function path*/
 	}
 	token = strtok(NULL, ":");
 	}
