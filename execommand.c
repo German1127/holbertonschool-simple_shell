@@ -31,11 +31,11 @@ int executeCommand(char *command, char **arraytok)
 		{
 			(execve(command, arraytok, NULL)); /* if true excecute it directly*/
 		}
-		else /*if false check for the complete path for the command*/
+		else /*if false check for the complete path*/
 		{
 			if (commandpath != NULL)
 			{
-				execve(commandpath, arraytok, __environ); /*excetue full path fuction*/
+				execve(commandpath, arraytok, __environ);
 				free(commandpath);
 			}
 			else
@@ -51,5 +51,6 @@ int executeCommand(char *command, char **arraytok)
 	{
 		wait(&status);
 	}
-	return (WEXITSTATUS(status));
+	free(commandpath);
+	return(WEXITSTATUS(status));
 }
