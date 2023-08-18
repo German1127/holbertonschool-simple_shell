@@ -16,4 +16,5 @@ char **strtok_str(char *copy_line);
 char *readinput();
 void free_memory(char **args);
 int freememory2(char *command, char *commandpath);
+void print_environment(void);
 #endif
