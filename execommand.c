@@ -29,7 +29,7 @@ int executeCommand(char *command, char **arraytok)
 		checks = stat(command, &exist);  /* check if command is alrady a path*/
 		if (checks == 0)
 		{
-			(execve(command, arraytok, NULL)); /* if true excecute it directly*/
+			(execve(command, arraytok, NULL)); /*if true excecute it directly*/
 		}
 		else /*if false check for the complete path*/
 		{
@@ -46,5 +46,5 @@ int executeCommand(char *command, char **arraytok)
 	{
 		wait(&status);	}
 	free(commandpath);
-	return (WEXITSTATUS(status));
+	return (WEXITSTATUS(status)); /* get the son status and return it*/
 }

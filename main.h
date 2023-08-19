@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <stddef.h>
+extern char **environ;
 char *path(char *filename);
 char *get_env(const char *name);
 char *findexpath(const char *command, const char *path);

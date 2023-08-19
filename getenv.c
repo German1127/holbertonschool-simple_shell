@@ -8,7 +8,6 @@
 {
 	size_t length = strlen(name);
 	int i = 0;
-	extern char **environ;
 
 	for (; environ[i] != NULL; i++)/*search in the environ the variable name*/
 	{
